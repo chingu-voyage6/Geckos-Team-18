@@ -12,7 +12,6 @@ import { CollectionService } from '@collection/services/collection.service';
 import { CollectionsComponent } from '@collection/components/collections/collections.component';
 import { CreateCollectionComponent } from '@collection/components/create-collection/create-collection.component';
 import { CreateCollectionBtnComponent } from '@collection/components/create-collection-btn/create-collection-btn.component';
-import { CollectionComponent } from '@collection/components/collection/collection.component';
 import { EditCollectionComponent } from './components/edit-collection/edit-collection.component';
 import { DeleteCollectionDialogComponent } from './components/delete-collection-dialog/delete-collection-dialog.component';
 import { ViewCollectionComponent } from './components/view-collection/view-collection.component';
@@ -22,14 +21,20 @@ import { CreateCardBtnComponent } from './components/create-card-btn/create-card
 import { CreateCardComponent } from './components/create-card/create-card.component';
 import { EditCardComponent } from './components/edit-card/edit-card.component';
 import { DeleteCardDialogComponent } from './components/delete-card-dialog/delete-card-dialog.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, RoutingModule, MaterialModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RoutingModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    SharedModule
+  ],
   declarations: [
     CollectionsComponent,
     CreateCollectionComponent,
     CreateCollectionBtnComponent,
-    CollectionComponent,
     EditCollectionComponent,
     DeleteCollectionDialogComponent,
     ViewCollectionComponent,
@@ -44,7 +49,6 @@ import { DeleteCardDialogComponent } from './components/delete-card-dialog/delet
     CollectionsComponent,
     CreateCollectionComponent,
     CreateCollectionBtnComponent,
-    CollectionComponent,
     EditCollectionComponent,
     DeleteCollectionDialogComponent,
     ViewCollectionComponent,

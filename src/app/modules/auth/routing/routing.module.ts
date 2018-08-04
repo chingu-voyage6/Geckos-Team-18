@@ -3,9 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from '@auth/components/login/login.component';
 import { RegisterComponent } from '@auth/components/register/register.component';
-import { DisplayNameComponent } from '@auth/components/display-name/display-name.component';
-import { UserGuard } from '@auth/guards/user.guard';
-import { AuthGuard } from '@auth/guards/auth.guard';
+import { ProfileComponent } from '@auth/components/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -17,18 +15,13 @@ export const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'display-name',
-    component: DisplayNameComponent,
-    canActivate: [AuthGuard],
-    resolve: {
-      user: UserGuard
-    }
+    path: 'profile',
+    component: ProfileComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  providers: [AuthGuard, UserGuard]
+  exports: [RouterModule]
 })
 export class RoutingModule {}
