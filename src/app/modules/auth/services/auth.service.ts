@@ -125,6 +125,7 @@ export class AuthService {
   }
 
   signOut() {
+    this.router.navigate(['home']);
     this.afAuth.auth.signOut();
     this.user = of(null);
   }

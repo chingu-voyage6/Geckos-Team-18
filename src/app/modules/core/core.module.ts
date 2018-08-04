@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileButtonComponent } from '@core/components/profile-button/profile-button.component';
 
 @NgModule({
   imports: [
@@ -25,23 +26,25 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    ToolbarComponent,
-    LogoComponent,
-    LandingComponent,
-    SidenavComponent,
     ExpandableSearchComponent,
     FooterComponent,
-    SearchResultsComponent
+    LandingComponent,
+    LogoComponent,
+    ProfileButtonComponent,
+    SearchResultsComponent,
+    SidenavComponent,
+    ToolbarComponent
   ],
   providers: [LayoutService],
   exports: [
-    ToolbarComponent,
-    LogoComponent,
-    LandingComponent,
-    SidenavComponent,
     ExpandableSearchComponent,
     FooterComponent,
-    SearchResultsComponent
+    LandingComponent,
+    LogoComponent,
+    ProfileButtonComponent,
+    SearchResultsComponent,
+    SidenavComponent,
+    ToolbarComponent
   ]
 })
 export class CoreModule {}

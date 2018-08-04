@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Collection } from '@collection/models/collection.model';
 import { Card } from '@collection/models/card.model';
 import { CollectionService } from '@collection/services/collection.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-delete-card-dialog',
@@ -10,19 +11,20 @@ import { CollectionService } from '@collection/services/collection.service';
   styleUrls: ['./delete-card-dialog.component.css']
 })
 export class DeleteCardDialogComponent implements OnInit {
-
   constructor(
-  	public dialogRef: MatDialogRef<DeleteCardDialogComponent>,
+    public dialogRef: MatDialogRef<DeleteCardDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Card,
-    private collectionService: CollectionService
-    ) { }
+    private collectionService: CollectionService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {
-  }
-   delete() {
-    this.collectionService.deleteCollectionCard(this.data.id, {} ).then(() => {
-      this.close();
-    });
+  ngOnInit() {}
+  delete() {
+    this.collectionService
+      .deleteCollectionCard(this.route.snapshot.params.id, this.data)
+      .then(() => {
+        this.close();
+      });
   }
 
   close() {

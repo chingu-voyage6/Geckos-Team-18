@@ -7,8 +7,8 @@ import { CreateCardComponent } from '@collection/components/create-card/create-c
 import { CardComponent } from '@collection/components/card/card.component';
 import { EditCardComponent } from '@collection/components/edit-card/edit-card.component';
 import { EditCollectionComponent } from '@collection/components/edit-collection/edit-collection.component';
-import { CollectionGuard} from '@collection/guards/collection.guard';
-import { CardGuard} from '@collection/guards/card.guard';
+import { CollectionGuard } from '@collection/guards/collection.guard';
+import { CardGuard } from '@collection/guards/card.guard';
 import { ViewCollectionComponent } from '@collection/components/view-collection/view-collection.component';
 
 export const routes: Routes = [
@@ -40,7 +40,7 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'edit-card/:id',
+    path: 'view/:id/edit-card/:cardId',
     component: EditCardComponent,
     resolve: {
       collection: CardGuard

@@ -14,18 +14,30 @@ import {
   styleUrls: ['./card.component.css'],
   animations: [
     trigger('cardReverse', [
-      state('showFront', style({
-        transform: 'rotateY(360deg)'
-      })),
-      state('hideFront',   style({
-        transform: 'rotateY(180deg)'
-      })),
-      state('showBack', style({
-        transform: 'rotateY(180deg)'
-      })),
-      state('hideBack',   style({
-        transform: 'rotateY(360deg)'
-      })),
+      state(
+        'showFront',
+        style({
+          transform: 'rotateY(360deg)'
+        })
+      ),
+      state(
+        'hideFront',
+        style({
+          transform: 'rotateY(180deg)'
+        })
+      ),
+      state(
+        'showBack',
+        style({
+          transform: 'rotateY(180deg)'
+        })
+      ),
+      state(
+        'hideBack',
+        style({
+          transform: 'rotateY(360deg)'
+        })
+      ),
       transition('showFront => hideFront', animate('1000ms ease-out')),
       transition('hideFront => showFront', animate('1000ms ease-in')),
       transition('showBack => hideBack', animate('1000ms ease-out')),
@@ -36,20 +48,21 @@ import {
 export class CardComponent implements OnInit {
   show = true;
   @Input() card: Card;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   get frontReverse() {
-    return this.show ? 'showFront' : 'hideFront'
+    return this.show ? 'showFront' : 'hideFront';
   }
 
   get backReverse() {
-    return this.show ? 'showBack' : 'hideBack'
+    return this.show ? 'showBack' : 'hideBack';
   }
 
   toggle() {
     this.show = !this.show;
   }
+
+  deleteCard() {}
 }
