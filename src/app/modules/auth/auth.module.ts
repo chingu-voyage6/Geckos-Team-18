@@ -12,12 +12,12 @@ import { AuthService } from '@auth/services/auth.service';
 
 import { LoginComponent } from '@auth/components/login/login.component';
 import { RegisterComponent } from '@auth/components/register/register.component';
-import { DisplayNameComponent } from './components/display-name/display-name.component';
+import { ProfileComponent } from '@auth/components/profile/profile.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, RoutingModule, MaterialModule],
-  declarations: [LoginComponent, RegisterComponent, DisplayNameComponent],
-  exports: [LoginComponent, RegisterComponent, DisplayNameComponent],
+  declarations: [LoginComponent, RegisterComponent, ProfileComponent],
+  exports: [LoginComponent, RegisterComponent, ProfileComponent],
   providers: [AuthService, AngularFireAuth, AngularFirestore]
 })
 export class AuthModule {}

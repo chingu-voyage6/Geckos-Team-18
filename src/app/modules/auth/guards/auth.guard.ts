@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
     return this.auth.user.pipe(
       take(1),
       map(user => {
-        return !!user;
+        return !!(user && user.displayName);
       }),
       tap(authenticated => {
         if (!authenticated) {

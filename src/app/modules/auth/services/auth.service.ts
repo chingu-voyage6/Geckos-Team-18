@@ -34,8 +34,16 @@ export class AuthService {
     );
   }
 
+  get state() {
+    return this.afAuth.auth;
+  }
+
+  get currentUser() {
+    return this.state.currentUser;
+  }
+
   get uid(): string {
-    return this.afAuth.auth.currentUser.uid;
+    return this.state.currentUser.uid;
   }
 
   anonymousSignIn() {
@@ -65,7 +73,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(user => {
         this.getUser(user);
-        this.router.navigate(['/collections']);
+        this.router.navigate(['home']);
       })
       .catch(error => {
         console.log(error);
@@ -119,7 +127,6 @@ export class AuthService {
   signOut() {
     this.afAuth.auth.signOut();
     this.user = of(null);
-    this.router.navigate(['/home']);
   }
 
   private setUserDoc(auth) {
@@ -147,7 +154,7 @@ export class AuthService {
       }
     }
 
-    this.router.navigate(['/collections']);
+    this.router.navigate(['collections']);
 
     return userRef.set(data);
   }

@@ -11,11 +11,19 @@ import { LogoComponent } from '@core/components/logo/logo.component';
 import { LandingComponent } from '@core/components/landing/landing.component';
 import { SidenavComponent } from '@core/components/sidenav/sidenav.component';
 import { ExpandableSearchComponent } from '@core/components/expandable-search/expandable-search.component';
-import { FooterComponent } from '@core/components/footer/footer.component';
-import { ProfileButtonComponent } from '@core/components/profile-button/profile-button.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, MaterialModule, RoutingModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    RoutingModule,
+    FormsModule,
+    SharedModule
+  ],
   declarations: [
     ToolbarComponent,
     LogoComponent,
@@ -23,7 +31,7 @@ import { ProfileButtonComponent } from '@core/components/profile-button/profile-
     SidenavComponent,
     ExpandableSearchComponent,
     FooterComponent,
-    ProfileButtonComponent
+    SearchResultsComponent
   ],
   providers: [LayoutService],
   exports: [
@@ -33,7 +41,7 @@ import { ProfileButtonComponent } from '@core/components/profile-button/profile-
     SidenavComponent,
     ExpandableSearchComponent,
     FooterComponent,
-    ProfileButtonComponent
+    SearchResultsComponent
   ]
 })
 export class CoreModule {}
