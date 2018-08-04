@@ -1,0 +1,17 @@
+:host {
+  top: 0;
+  position: sticky;
+  z-index: 6;
+}
+
+app-logo {
+  height: 45px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+app-expandable-search {
+  width: 60%;
+}
