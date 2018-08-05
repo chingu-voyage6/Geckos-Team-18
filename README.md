@@ -1,4 +1,4 @@
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage6/Geckos-Team-18.svg?columns=all)](https://waffle.io/chingu-voyage6/Geckos-Team-18)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage6/Geckos-Team-18-corrupted.svg?columns=all)](https://waffle.io/chingu-voyage6/Geckos-Team-18)
 
 # ChinguAngular
 
@@ -12,20 +12,30 @@ Create a repository of user-tailored flash cards, compiled in collections. The c
 #### Beyond MVP ####
 
 ### :sparkles: The Team: :sparkles: ###
-| Name                 | Location  | Handles... |
-| :------------------- | :-------- | :--------- |
-| Vytautas (Team Lead) | Lithuania | [@](#)     |
-| Anton                | Ukraine   | [@](#)     |
-| Veronique            | Ireland   | [@](#)     |
+| Name                 | Location  |
+| :------------------- | :-------- | 
+| Vytautas (Team Lead) | Lithuania | 
+| Anton                | Ukraine   | 
+| Veronique            | Ireland   | 
 
 ### Waffle Board ###
 [Geckos-Team-18](https://waffle.io/chingu-voyage6/Geckos-Team-18)
-[![Throughput Graph](https://graphs.waffle.io/chingu-voyage6/Geckos-Team-18/throughput.svg)](https://waffle.io/chingu-voyage6/Geckos-Team-18/metrics/throughput)
+[Geckos-Team-18-corrupted](https://waffle.io/chingu-voyage6/Geckos-Team-18-corrupted)
+[![Throughput Graph](https://graphs.waffle.io/chingu-voyage6/Geckos-Team-18-corrupted/throughput.svg)](https://waffle.io/chingu-voyage6/Geckos-Team-18-corrupted/metrics/throughput)
 
 ### User Stories ###
 [Click here](https://docs.google.com/spreadsheets/d/19QA2GLMYUWYYiWeVifXv72iCkzWuYLb5Ez6aWOluKlM/edit?usp=sharing)
 
-### Hurdles :boom: ###
+### Hurdles ###
+
+We mistakenly duplicated our Git commits/branches/changes/master branches while trying to fix an unfortunate commit.:boom: 
+To clean up our working process, we created a new repository.
+
+Both can be viewed here:
+
+| [Geckos-Team-18](https://github.com/chingu-voyage6/Geckos-Team-18) | [Geckos-Team-18-corrupted](https://github.com/chingu-voyage6/Geckos-Team-18-corrupted) |
+
+
 
 ## Project on the web
 
