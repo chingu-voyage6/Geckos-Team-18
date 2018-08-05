@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-card-btn',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-card-btn.component.css']
 })
 export class CreateCardBtnComponent implements OnInit {
+  constructor(
+    private authService: AuthService,
+    private route: ActivatedRoute
+  ) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  get canCreate(): boolean {
+    if (this.authService.currentUser) {
+      return (
+        this.authService.uid == this.route.snapshot.data.collection.authorId
+      );
+    } else {
+      return false;
+    }
   }
-
 }
