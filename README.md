@@ -8,8 +8,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Breezy Cards ##
 Create a repository of user-tailored flash cards, compiled in collections. The collections can be made public or private, and users can log in to access their own private collections.
 #### MVP ####
+    Refer to Waffle Boards
 
 #### Beyond MVP ####
+    * Redux
+  
 
 ### :sparkles: The Team: :sparkles: ###
 | Name                 | Location  |
@@ -20,6 +23,8 @@ Create a repository of user-tailored flash cards, compiled in collections. The c
 
 ### Waffle Board ###
 [Geckos-Team-18](https://waffle.io/chingu-voyage6/Geckos-Team-18)
+[![Throughput Graph](https://graphs.waffle.io/chingu-voyage6/Geckos-Team-18/throughput.svg)](https://waffle.io/chingu-voyage6/Geckos-Team-18/metrics/throughput) |
+------
 [Geckos-Team-18-corrupted](https://waffle.io/chingu-voyage6/Geckos-Team-18-corrupted)
 [![Throughput Graph](https://graphs.waffle.io/chingu-voyage6/Geckos-Team-18-corrupted/throughput.svg)](https://waffle.io/chingu-voyage6/Geckos-Team-18-corrupted/metrics/throughput)
 
