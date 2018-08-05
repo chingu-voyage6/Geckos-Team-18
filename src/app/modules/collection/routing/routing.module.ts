@@ -10,41 +10,51 @@ import { EditCollectionComponent } from '@collection/components/edit-collection/
 import { CollectionGuard } from '@collection/guards/collection.guard';
 import { CardGuard } from '@collection/guards/card.guard';
 import { ViewCollectionComponent } from '@collection/components/view-collection/view-collection.component';
+import { AuthGuard } from '@auth/guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    component: CollectionsComponent
-  },
-  {
-    path: 'create',
-    component: CreateCollectionComponent
-  },
-  {
-    path: 'view/:id/create',
-    component: CreateCardComponent
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: CollectionsComponent
+      },
+      {
+        path: 'create',
+        component: CreateCollectionComponent
+      },
+      {
+        path: 'edit/:id',
+        component: EditCollectionComponent,
+        resolve: {
+          collection: CollectionGuard
+        }
+      }
+    ]
   },
   {
     path: 'view/:id',
-    component: ViewCollectionComponent,
     resolve: {
       collection: CollectionGuard,
       cards: CardGuard
-    }
-  },
-  {
-    path: 'edit/:id',
-    component: EditCollectionComponent,
-    resolve: {
-      collection: CollectionGuard
-    }
-  },
-  {
-    path: 'view/:id/edit-card/:cardId',
-    component: EditCardComponent,
-    resolve: {
-      collection: CardGuard
-    }
+    },
+    children: [
+      {
+        path: '',
+        component: ViewCollectionComponent
+      },
+      {
+        path: 'create',
+        component: CreateCardComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'edit-card/:cardId',
+        component: EditCardComponent
+      }
+    ]
   }
 ];
 
