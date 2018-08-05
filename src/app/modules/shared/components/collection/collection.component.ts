@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collection } from '@collection/models/collection.model';
+import { MatDialog } from '@angular/material';
+import { DeleteCollectionDialogComponent } from '@shared/components/delete-collection-dialog/delete-collection-dialog.component';
 import { AuthService } from '@auth/services/auth.service';
 
 @Component({
@@ -9,10 +11,15 @@ import { AuthService } from '@auth/services/auth.service';
 })
 export class CollectionComponent implements OnInit {
   @Input() collection: Collection;
-
-  constructor(private authService: AuthService) {}
+  @Input() actionsEnabled: boolean = true;
+  constructor(public dialog: MatDialog, private authService: AuthService) {}
 
   ngOnInit() {}
 
-  deleteCollection() {}
+  deleteCollection() {
+    this.dialog.open(DeleteCollectionDialogComponent, {
+      width: '250px',
+      data: this.collection
+    });
+  }
 }
