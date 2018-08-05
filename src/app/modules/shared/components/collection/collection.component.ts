@@ -12,7 +12,7 @@ import { AuthService } from '@auth/services/auth.service';
 export class CollectionComponent implements OnInit {
   @Input() collection: Collection;
   @Input() actionsEnabled: boolean = true;
-  constructor(public dialog: MatDialog, private authService: AuthService) {}
+  constructor(public dialog: MatDialog, public authService: AuthService) {}
 
   ngOnInit() {}
 
