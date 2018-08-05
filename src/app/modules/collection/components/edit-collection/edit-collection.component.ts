@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CollectionService } from '@collection/services/collection.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Collection } from '@collection/models/collection.model';
 
 @Component({
@@ -15,7 +16,7 @@ export class EditCollectionComponent implements OnInit {
   constructor(
     private editBuilder: FormBuilder,
     private collectionService: CollectionService,
-    private router: Router,
+    private location: Location,
     private route: ActivatedRoute
   ) {}
 
@@ -30,7 +31,7 @@ export class EditCollectionComponent implements OnInit {
     this.collection.name = this.name.value;
     this.collection.public = this.public.value;
     this.collectionService.updateCollection(this.collection).then(() => {
-      this.router.navigate(['/collections']);
+      this.location.back();
     });
   }
 
