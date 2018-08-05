@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+@import '../../../../../main-theme.scss';
+
+.center {
+  text-align: center;
+  align-content: space-around;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+#title {
+  font-size: 5em;
+  font-family: $special-font;
+  color: mat-color($main-theme-primary);
+}
+
+.bigger {
+  width: 45px;
+  height: 45px;
+}
