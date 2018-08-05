@@ -13,7 +13,6 @@ import { CollectionsComponent } from '@collection/components/collections/collect
 import { CreateCollectionComponent } from '@collection/components/create-collection/create-collection.component';
 import { CreateCollectionBtnComponent } from '@collection/components/create-collection-btn/create-collection-btn.component';
 import { EditCollectionComponent } from './components/edit-collection/edit-collection.component';
-import { DeleteCollectionDialogComponent } from './components/delete-collection-dialog/delete-collection-dialog.component';
 import { ViewCollectionComponent } from './components/view-collection/view-collection.component';
 import { CardComponent } from './components/card/card.component';
 import { CardSideComponent } from './components/card-side/card-side.component';
@@ -36,26 +35,22 @@ import { SharedModule } from '../shared/shared.module';
     CreateCollectionComponent,
     CreateCollectionBtnComponent,
     EditCollectionComponent,
-    DeleteCollectionDialogComponent,
     ViewCollectionComponent,
     CardComponent,
     CardSideComponent,
     CreateCardBtnComponent,
     CreateCardComponent,
-    EditCardComponent,
-    DeleteCardDialogComponent
+    EditCardComponent
   ],
   exports: [
     CollectionsComponent,
     CreateCollectionComponent,
     CreateCollectionBtnComponent,
     EditCollectionComponent,
-    DeleteCollectionDialogComponent,
     ViewCollectionComponent,
     CardComponent,
     CardSideComponent
   ],
-  entryComponents: [DeleteCollectionDialogComponent],
   providers: [AngularFirestore, CollectionService]
 })
 export class CollectionModule {}
