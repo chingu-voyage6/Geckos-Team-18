@@ -8,7 +8,6 @@ import { CardComponent } from '@collection/components/card/card.component';
 import { EditCardComponent } from '@collection/components/edit-card/edit-card.component';
 import { EditCollectionComponent } from '@collection/components/edit-collection/edit-collection.component';
 import { CollectionGuard } from '@collection/guards/collection.guard';
-import { CardGuard } from '@collection/guards/card.guard';
 import { ViewCollectionComponent } from '@collection/components/view-collection/view-collection.component';
 import { AuthGuard } from '@auth/guards/auth.guard';
 
@@ -37,8 +36,7 @@ export const routes: Routes = [
   {
     path: 'view/:id',
     resolve: {
-      collection: CollectionGuard,
-      cards: CardGuard
+      collection: CollectionGuard
     },
     children: [
       {
@@ -61,6 +59,6 @@ export const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [CollectionGuard, CardGuard]
+  providers: [CollectionGuard]
 })
 export class RoutingModule {}
