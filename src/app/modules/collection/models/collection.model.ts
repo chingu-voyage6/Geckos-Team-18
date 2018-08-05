@@ -5,5 +5,4 @@ export interface Collection {
   authorId?: string;
   name: string;
   public: boolean;
-  cards?: Card[];
 }
