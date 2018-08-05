@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Collection } from '@collection/models/collection.model';
-
+import { Card } from '@collection/models/card.model';
+import { Observable } from 'rxjs';
+import { CollectionService } from '@collection/services/collection.service';
 
 @Component({
   selector: 'app-view-collection',
@@ -10,10 +12,14 @@ import { Collection } from '@collection/models/collection.model';
 })
 export class ViewCollectionComponent implements OnInit {
   collection: Collection;
-  constructor(private route: ActivatedRoute) {}
+  cards: Observable<Card[]>;
+  constructor(
+    private route: ActivatedRoute,
+    private collectionService: CollectionService
+  ) {}
 
   ngOnInit() {
     this.collection = this.route.snapshot.data.collection;
-    this.collection.cards = this.route.snapshot.data.cards;
+    this.cards = this.collectionService.getCollectionCards(this.collection.id);
   }
 }
