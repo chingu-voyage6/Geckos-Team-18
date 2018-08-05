@@ -5,7 +5,9 @@ import { AuthGuard } from '@auth/guards/auth.guard';
 import { UserGuard } from '@auth/guards/user.guard';
 
 import { LandingComponent } from '@core/components/landing/landing.component';
+import { FourOhFourComponent } from '@core/components/four-oh-four/four-oh-four.component';
 import { SearchResultsComponent } from '@core/components/search-results/search-results.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,6 +29,10 @@ export const routes: Routes = [
   {
     path: 'legal',
     loadChildren: '../../legal/legal.module#LegalModule'
+  },
+  {
+    path: '**',
+    component: FourOhFourComponent
   }
 ];
 

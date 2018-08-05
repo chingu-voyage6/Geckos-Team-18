@@ -8,6 +8,7 @@ import { LayoutService } from '@core/services/layout.service';
 
 import { ToolbarComponent } from '@core/components/toolbar/toolbar.component';
 import { LogoComponent } from '@core/components/logo/logo.component';
+import { FourOhFourComponent } from '@core/components/four-oh-four/four-oh-four.component';
 import { LandingComponent } from '@core/components/landing/landing.component';
 import { SidenavComponent } from '@core/components/sidenav/sidenav.component';
 import { ExpandableSearchComponent } from '@core/components/expandable-search/expandable-search.component';
@@ -16,6 +17,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ProfileButtonComponent } from '@core/components/profile-button/profile-button.component';
+
 
 @NgModule({
   imports: [
@@ -33,7 +35,8 @@ import { ProfileButtonComponent } from '@core/components/profile-button/profile-
     ProfileButtonComponent,
     SearchResultsComponent,
     SidenavComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FourOhFourComponent
   ],
   providers: [LayoutService],
   exports: [
