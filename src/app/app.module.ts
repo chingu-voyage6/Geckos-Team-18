@@ -23,7 +23,7 @@ import { AppComponent } from './modules/core/components/app/app.component';
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule,
     AuthModule,
-    CoreModule,
+    CoreModule
   ],
   bootstrap: [AppComponent]
 })
