@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-four-oh-four',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./four-oh-four.component.scss']
 })
 export class FourOhFourComponent implements OnInit {
-
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
+    this.router.navigate(['/error']);
   }
-
 }
