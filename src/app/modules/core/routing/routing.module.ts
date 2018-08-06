@@ -10,7 +10,7 @@ import { SearchResultsComponent } from '@core/components/search-results/search-r
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
     component: LandingComponent

@@ -12,14 +12,14 @@ import { Location } from '@angular/common';
 export class CreateCardComponent implements OnInit {
   createCard: FormGroup;
   constructor(
-  	private createBuilder: FormBuilder,
+    private createBuilder: FormBuilder,
     private createService: CollectionService,
     private route: ActivatedRoute,
     private location: Location
-  	) { }
+  ) {}
 
   ngOnInit() {
-  	this.createCard = this.createBuilder.group({
+    this.createCard = this.createBuilder.group({
       name: ['', [Validators.required]],
       front: ['', [Validators.required]],
       back: ['', [Validators.required]]
@@ -27,23 +27,24 @@ export class CreateCardComponent implements OnInit {
   }
   save() {
     this.createService
-      .createCollectionCard(this.route.snapshot.params.id, 
-      { title: this.name.value, 
-      	front: {content: this.front.value}, 
-      	back: {content: this.back.value} })
+      .createCollectionCard(this.route.snapshot.params.id, {
+        title: this.name.value,
+        front: { content: this.front.value },
+        back: { content: this.back.value }
+      })
       .then(() => {
-        this.location.back()
+        this.location.back();
       });
   }
   get name() {
     return this.createCard.get('name');
   }
 
-   get front() {
+  get front() {
     return this.createCard.get('front');
   }
 
-   get back() {
+  get back() {
     return this.createCard.get('back');
   }
 }
