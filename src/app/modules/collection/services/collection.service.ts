@@ -77,6 +77,12 @@ export class CollectionService {
       .valueChanges();
   }
 
+  getCollectionCard(collectionId: string, cardId: string) {
+  	return this.afs
+      .doc(`collections/${collectionId}/cards/${cardId}`)
+      .valueChanges();
+  }
+
   createCollectionCard(collectionId: string, card: Card) {
     return (
       this.afs

@@ -41,8 +41,9 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: ViewCollectionComponent
+        component: ViewCollectionComponent,
       },
+      
       {
         path: 'create',
         component: CreateCardComponent,
