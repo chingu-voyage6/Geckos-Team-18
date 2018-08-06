@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CollectionService } from '@collection/services/collection.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Collection } from '@collection/models/collection.model';
 import { Location } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { Card } from '@collection/models/card.model';
 
 
 @Component({
@@ -11,9 +12,9 @@ import { Location } from '@angular/common';
   templateUrl: './edit-card.component.html',
   styleUrls: ['./edit-card.component.css']
 })
-export class EditCardComponent implements OnInit {
+export class EditCardComponent implements OnInit, OnDestroy {
   editCard: FormGroup;
-  collection: Collection;
+  cardSubscription: Subscription
   constructor(
     private editBuilder: FormBuilder,
     private updateService: CollectionService,
@@ -27,11 +28,20 @@ export class EditCardComponent implements OnInit {
       front: ['', [Validators.required]],
       back: ['', [Validators.required]]
     });
+    this.cardSubscription = this.updateService.getCollectionCard(
+      this.route.snapshot.params.id,
+      this.route.snapshot.params.cardId
+  ).subscribe((card: Card) => {
+    this.name.setValue(card.title),
+    this.front.setValue(card.front.content),
+    this.back.setValue(card.back.content)
+  });
   }
   save() {
     this.updateService
       .updateCollectionCard(this.route.snapshot.params.id, 
-      { title: this.name.value, 
+      { title: this.name.value,
+        id: this.route.snapshot.params.cardId,
       	front: {content: this.front.value}, 
       	back: {content: this.back.value} })
       .then(() => {
@@ -49,5 +59,8 @@ export class EditCardComponent implements OnInit {
    get back() {
     return this.editCard.get('back');
   }
-}
 
+   ngOnDestroy() {
+     this.cardSubscription.unsubscribe() 
+   }
+}

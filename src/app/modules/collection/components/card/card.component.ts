@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DeleteCardDialogComponent } from '@collection/components/delete-card-dialog/delete-card-dialog.component';
 import { Card } from '../../models/card.model';
+import { MatDialog } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 import {
   trigger,
   state,
@@ -48,7 +51,7 @@ import {
 export class CardComponent implements OnInit {
   show = true;
   @Input() card: Card;
-  constructor() {}
+  constructor(public dialog: MatDialog, private route: ActivatedRoute ) {}
 
   ngOnInit() {}
 
@@ -64,5 +67,10 @@ export class CardComponent implements OnInit {
     this.show = !this.show;
   }
 
-  deleteCard() {}
+  deleteCard() {
+    this.dialog.open(DeleteCardDialogComponent, {
+      width: '250px',
+      data: { collectionId: this.route.snapshot.params.id, card: this.card}, 
+    });
+  }
 }

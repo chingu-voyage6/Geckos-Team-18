@@ -22,8 +22,8 @@ import { AppComponent } from './modules/core/components/app/app.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule,
+    AuthModule,
     CoreModule,
-    AuthModule
   ],
   bootstrap: [AppComponent]
 })

@@ -40,7 +40,8 @@ import { SharedModule } from '../shared/shared.module';
     CardSideComponent,
     CreateCardBtnComponent,
     CreateCardComponent,
-    EditCardComponent
+    EditCardComponent,
+    DeleteCardDialogComponent
   ],
   exports: [
     CollectionsComponent,
@@ -49,8 +50,13 @@ import { SharedModule } from '../shared/shared.module';
     EditCollectionComponent,
     ViewCollectionComponent,
     CardComponent,
-    CardSideComponent
+    CardSideComponent,
+    CreateCardBtnComponent,
+    CreateCardComponent,
+    EditCardComponent,
+    DeleteCardDialogComponent
   ],
+  entryComponents: [DeleteCardDialogComponent],
   providers: [AngularFirestore, CollectionService]
 })
 export class CollectionModule {}
