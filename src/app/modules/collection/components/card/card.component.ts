@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DeleteCardDialogComponent } from '@collection/components/delete-card-dialog/delete-card-dialog.component';
 import { Card } from '../../models/card.model';
+import { Collection } from '../../models/collection.model';
 import { MatDialog } from '@angular/material';
+import { AuthService } from '@auth/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import {
   trigger,
@@ -51,9 +53,13 @@ import {
 export class CardComponent implements OnInit {
   show = true;
   @Input() card: Card;
-  constructor(public dialog: MatDialog, private route: ActivatedRoute ) {}
+  collection: Collection;
+  @Input() actionsEnabled: boolean = true;
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, public authService: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.collection = this.route.snapshot.data.collection
+  }
 
   get frontReverse() {
     return this.show ? 'showFront' : 'hideFront';
@@ -66,6 +72,8 @@ export class CardComponent implements OnInit {
   toggle() {
     this.show = !this.show;
   }
+
+
 
   deleteCard() {
     this.dialog.open(DeleteCardDialogComponent, {
