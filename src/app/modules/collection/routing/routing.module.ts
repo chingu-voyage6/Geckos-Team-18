@@ -9,6 +9,7 @@ import { EditCardComponent } from '@collection/components/edit-card/edit-card.co
 import { EditCollectionComponent } from '@collection/components/edit-collection/edit-collection.component';
 import { CollectionGuard } from '@collection/guards/collection.guard';
 import { ViewCollectionComponent } from '@collection/components/view-collection/view-collection.component';
+import { TrainingViewComponent } from '@collection/components/training-view/training-view.component';
 import { AuthGuard } from '@auth/guards/auth.guard';
 
 export const routes: Routes = [
@@ -41,9 +42,12 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: ViewCollectionComponent,
+        component: ViewCollectionComponent
       },
-      
+      {
+        path: 'training',
+        component: TrainingViewComponent
+      },
       {
         path: 'create',
         component: CreateCardComponent,

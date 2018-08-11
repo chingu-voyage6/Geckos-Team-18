@@ -6,6 +6,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 
 import { MaterialModule } from '@material/material.module';
 import { RoutingModule } from '@collection/routing/routing.module';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 import { CollectionService } from '@collection/services/collection.service';
 
@@ -21,12 +22,14 @@ import { CreateCardComponent } from './components/create-card/create-card.compon
 import { EditCardComponent } from './components/edit-card/edit-card.component';
 import { DeleteCardDialogComponent } from './components/delete-card-dialog/delete-card-dialog.component';
 import { SharedModule } from '../shared/shared.module';
+import { TrainingViewComponent } from './components/training-view/training-view.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RoutingModule,
     MaterialModule,
+    DragScrollModule,
     ReactiveFormsModule,
     SharedModule
   ],
@@ -41,7 +44,8 @@ import { SharedModule } from '../shared/shared.module';
     CreateCardBtnComponent,
     CreateCardComponent,
     EditCardComponent,
-    DeleteCardDialogComponent
+    DeleteCardDialogComponent,
+    TrainingViewComponent
   ],
   exports: [
     CollectionsComponent,

@@ -1,0 +1,12 @@
+<div class="wrapper" fxLayoutAlign="center">
+	<drag-scroll #scroll 
+	(reachesLeftBound)="leftBoundStat($event)" (reachesRightBound)="rightBoundStat($event)">
+
+		<app-card drag-scroll-item fxFlex="30" *ngFor="let card of cards | async" [card]="card"></app-card>
+
+	</drag-scroll>
+</div>
+<div fxLayoutAlign="center">
+	<button mat-raised-button  [disabled]="leftNavDisabled" (click)="moveLeft()">Left</button>
+	<button mat-raised-button [disabled]="rightNavDisabled" (click)="moveRight()">Right</button>
+</div>

@@ -6,7 +6,6 @@ import { Location } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Card } from '@collection/models/card.model';
 
-
 @Component({
   selector: 'app-edit-card',
   templateUrl: './edit-card.component.html',
@@ -14,7 +13,7 @@ import { Card } from '@collection/models/card.model';
 })
 export class EditCardComponent implements OnInit, OnDestroy {
   editCard: FormGroup;
-  cardSubscription: Subscription
+  cardSubscription: Subscription;
   constructor(
     private editBuilder: FormBuilder,
     private updateService: CollectionService,
@@ -23,44 +22,47 @@ export class EditCardComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-  	this.editCard = this.editBuilder.group({
+    this.editCard = this.editBuilder.group({
       name: ['', [Validators.required]],
       front: ['', [Validators.required]],
       back: ['', [Validators.required]]
     });
-    this.cardSubscription = this.updateService.getCollectionCard(
-      this.route.snapshot.params.id,
-      this.route.snapshot.params.cardId
-  ).subscribe((card: Card) => {
-    this.name.setValue(card.title),
-    this.front.setValue(card.front.content),
-    this.back.setValue(card.back.content)
-  });
+    this.cardSubscription = this.updateService
+      .getCollectionCard(
+        this.route.snapshot.params.id,
+        this.route.snapshot.params.cardId
+      )
+      .subscribe((card: Card) => {
+        this.name.setValue(card.title),
+          this.front.setValue(card.front.content),
+          this.back.setValue(card.back.content);
+      });
   }
   save() {
     this.updateService
-      .updateCollectionCard(this.route.snapshot.params.id, 
-      { title: this.name.value,
+      .updateCollectionCard(this.route.snapshot.params.id, {
+        title: this.name.value,
         id: this.route.snapshot.params.cardId,
-      	front: {content: this.front.value}, 
-      	back: {content: this.back.value} })
+        front: { content: this.front.value },
+        back: { content: this.back.value }
+      })
       .then(() => {
-        this.location.back()
+        this.location.back();
       });
   }
   get name() {
     return this.editCard.get('name');
   }
 
-   get front() {
+  get front() {
     return this.editCard.get('front');
   }
 
-   get back() {
+  get back() {
     return this.editCard.get('back');
   }
 
-   ngOnDestroy() {
-     this.cardSubscription.unsubscribe() 
-   }
+  ngOnDestroy() {
+    this.cardSubscription.unsubscribe();
+  }
 }
