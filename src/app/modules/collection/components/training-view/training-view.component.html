@@ -1,12 +1,24 @@
-<div class="wrapper" fxLayoutAlign="center">
-	<drag-scroll #scroll 
-	(reachesLeftBound)="leftBoundStat($event)" (reachesRightBound)="rightBoundStat($event)">
+<!-- <div class="wrapper">
+	<div fxFill fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+		<app-training-card drag-scroll-item fxFlex="30" *ngFor="let card of cards | async" [card]="card"></app-training-card>
+	</div>
+</div> -->
+<div class="wrapper">
+	<mat-horizontal-stepper [linear]="true" #stepper>
+		<mat-step *ngFor="let card of cards | async; index as i; first as isFirst; last as isLast">
+			<app-training-card fxFlex="30" [card]="card"></app-training-card>
+			<button mat-button matStepperPrevious *ngIf="!isFirst">Back</button>
 
-		<app-card drag-scroll-item fxFlex="30" *ngFor="let card of cards | async" [card]="card"></app-card>
+			<button mat-button matStepperNext *ngIf="!isLast">Next</button>
 
-	</drag-scroll>
+			<button mat-button (click)="stepper.reset()">Reset</button>
+		</mat-step>
+	
+	</mat-horizontal-stepper>
 </div>
-<div fxLayoutAlign="center">
-	<button mat-raised-button  [disabled]="leftNavDisabled" (click)="moveLeft()">Left</button>
-	<button mat-raised-button [disabled]="rightNavDisabled" (click)="moveRight()">Right</button>
-</div>
+
+<!-- 
+1- disable/hide buttons if at beginning or end of cards -- index property of ngFor
+2- form control to ensure field is required
+3- output emitted for the input field
+4- disable next button if input field is empty -->

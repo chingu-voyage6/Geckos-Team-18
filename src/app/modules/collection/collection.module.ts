@@ -23,6 +23,7 @@ import { EditCardComponent } from './components/edit-card/edit-card.component';
 import { DeleteCardDialogComponent } from './components/delete-card-dialog/delete-card-dialog.component';
 import { SharedModule } from '../shared/shared.module';
 import { TrainingViewComponent } from './components/training-view/training-view.component';
+import { TrainingCardComponent } from './components/training-card/training-card.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { TrainingViewComponent } from './components/training-view/training-view.
     CreateCardComponent,
     EditCardComponent,
     DeleteCardDialogComponent,
-    TrainingViewComponent
+    TrainingViewComponent,
+    TrainingCardComponent
   ],
   exports: [
     CollectionsComponent,

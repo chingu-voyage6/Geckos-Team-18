@@ -51,7 +51,7 @@ import {
 export class CardComponent implements OnInit {
   show = true;
   @Input() card: Card;
-  constructor(public dialog: MatDialog, private route: ActivatedRoute ) {}
+  constructor(public dialog: MatDialog, private route: ActivatedRoute) {}
 
   ngOnInit() {}
 
@@ -70,7 +70,7 @@ export class CardComponent implements OnInit {
   deleteCard() {
     this.dialog.open(DeleteCardDialogComponent, {
       width: '250px',
-      data: { collectionId: this.route.snapshot.params.id, card: this.card}, 
+      data: { collectionId: this.route.snapshot.params.id, card: this.card }
     });
   }
 }
