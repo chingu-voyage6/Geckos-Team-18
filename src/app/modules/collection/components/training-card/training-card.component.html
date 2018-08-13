@@ -7,10 +7,11 @@
   <mat-card-content class="card">
     <app-card-side [cardSide]="card.front" class="front" fxLayout="row" fxLayoutAlign="center center">
     </app-card-side>
-<form [formGroup]="answerInput">
-      <mat-form-field >
-      <input matInput placeholder="Test" formControlName="answer" required>
-    </mat-form-field>
-</form>
+    <form [formGroup]="answerInput">
+      <mat-form-field>
+        <input matInput placeholder="Test" type="text" formControlName="answer"  required>
+      </mat-form-field>
+
+    </form>
   </mat-card-content>
 </mat-card>

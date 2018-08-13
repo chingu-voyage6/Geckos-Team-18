@@ -3,12 +3,11 @@
 		<app-training-card drag-scroll-item fxFlex="30" *ngFor="let card of cards | async" [card]="card"></app-training-card>
 	</div>
 </div> -->
-<div class="wrapper">
+<div class="wrapper" >
 	<mat-horizontal-stepper [linear]="true" #stepper>
 		<mat-step *ngFor="let card of cards | async; index as i; first as isFirst; last as isLast">
-			<app-training-card fxFlex="30" [card]="card"></app-training-card>
+			<app-training-card fxLayoutAlign="center" fxFlex="30" [card]="card"></app-training-card>
 			<button mat-button matStepperPrevious *ngIf="!isFirst">Back</button>
-
 			<button mat-button matStepperNext *ngIf="!isLast">Next</button>
 
 			<button mat-button (click)="stepper.reset()">Reset</button>

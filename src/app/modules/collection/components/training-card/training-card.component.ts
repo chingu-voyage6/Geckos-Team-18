@@ -2,7 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../../models/card.model';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl
+} from '@angular/forms';
 
 @Component({
   selector: 'app-training-card',
@@ -12,19 +17,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TrainingCardComponent implements OnInit {
   @Input() card: Card;
   answerInput: FormGroup;
+
+
   constructor(
     public dialog: MatDialog,
     private route: ActivatedRoute,
-    private answerLog: FormBuilder
+    // private fb: FormBuilder
   ) {}
 
-  ngOnInit() {
-    this.answerInput = this.answerLog.group({
-      answer: ['', [Validators.required]]
-    });
+  ngOnInit(): void {
+    this.answerInput = new FormGroup({
+      'answer': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)]
+      )});
   }
 
-  get answer() {
+  get answerLog() {
     return this.answerInput.get('answer');
   }
 }
