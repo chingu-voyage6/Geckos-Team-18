@@ -57,9 +57,9 @@ export class CollectionService {
         .collection<Collection>('collections')
         .add(collection)
         // tslint:disable-next-line:no-shadowed-variable
-        .then(collection => {
+        /*.then(collection => {
           collection.update({ id: collection.id });
-        })
+        })*/
     );
   }
 
