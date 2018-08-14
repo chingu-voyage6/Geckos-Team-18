@@ -19,8 +19,7 @@ import { CollectionService } from '@collection/services/collection.service';
 export class TrainingViewComponent implements OnInit {
   collection: Collection;
   cards: Observable<Card[]>;
-
-
+  answerLogged: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +29,11 @@ export class TrainingViewComponent implements OnInit {
   ngOnInit() {
     this.collection = this.route.snapshot.data.collection;
     this.cards = this.collectionService.getCollectionCards(this.collection.id);
+  }
+
+  updateValid(event) {
+    console.log(event);
+    this.answerLogged = event;
   }
 
 }

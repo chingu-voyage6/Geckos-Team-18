@@ -9,9 +9,8 @@
     </app-card-side>
     <form [formGroup]="answerInput">
       <mat-form-field>
-        <input matInput placeholder="Test" type="text" formControlName="answer"  required>
+        <input matInput placeholder="Test" type="text" formControlName="answer" (keyup)="isValid()">
       </mat-form-field>
-
     </form>
   </mat-card-content>
 </mat-card>

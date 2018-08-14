@@ -5,11 +5,10 @@
 </div> -->
 <div class="wrapper" >
 	<mat-horizontal-stepper [linear]="true" #stepper>
-		<mat-step *ngFor="let card of cards | async; index as i; first as isFirst; last as isLast">
-			<app-training-card fxLayoutAlign="center" fxFlex="30" [card]="card"></app-training-card>
+		<mat-step [stepControl]="answerInput" *ngFor="let card of cards | async; index as i; first as isFirst; last as isLast">
+			<app-training-card fxLayoutAlign="center" fxFlex="30" [card]="card" (valid)="updateValid($event)"></app-training-card>
 			<button mat-button matStepperPrevious *ngIf="!isFirst">Back</button>
-			<button mat-button matStepperNext *ngIf="!isLast">Next</button>
-
+			<button mat-button matStepperNext *ngIf="!isLast" [disabled]="!answerLogged">Next</button>
 			<button mat-button (click)="stepper.reset()">Reset</button>
 		</mat-step>
 	
@@ -17,7 +16,7 @@
 </div>
 
 <!-- 
-1- disable/hide buttons if at beginning or end of cards -- index property of ngFor
+
 2- form control to ensure field is required
 3- output emitted for the input field
 4- disable next button if input field is empty -->
