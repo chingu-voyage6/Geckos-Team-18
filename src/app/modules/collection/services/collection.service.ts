@@ -51,16 +51,17 @@ export class CollectionService {
   }
 
   createCollection(collection: Collection) {
-    collection.authorId = this.authService.uid;
-    return (
+    this.authService.user.subscribe(user => {
+      collection.author = user.displayName;
+      collection.authorId = user.uid;
       this.afs
         .collection<Collection>('collections')
         .add(collection)
         // tslint:disable-next-line:no-shadowed-variable
         .then(collection => {
           collection.update({ id: collection.id });
-        })
-    );
+        });
+    });
   }
 
   updateCollection(collection: Collection) {
@@ -78,7 +79,7 @@ export class CollectionService {
   }
 
   getCollectionCard(collectionId: string, cardId: string) {
-  	return this.afs
+    return this.afs
       .doc(`collections/${collectionId}/cards/${cardId}`)
       .valueChanges();
   }
