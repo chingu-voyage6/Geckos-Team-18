@@ -23,11 +23,12 @@ export class CreateCollectionComponent implements OnInit {
     });
   }
   save() {
-    this.createService
-      .createCollection({ name: this.name.value, public: this.public.value })
-      .then(() => {
-        this.router.navigate(['/collections']);
-      });
+    this.createService.createCollection({
+      name: this.name.value,
+      public: this.public.value
+    });
+
+    this.router.navigate(['/collections']);
   }
   get name() {
     return this.createForm.get('name');

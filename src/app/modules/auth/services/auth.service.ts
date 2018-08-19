@@ -42,6 +42,10 @@ export class AuthService {
     return this.state.currentUser;
   }
 
+  get displayName(): string {
+    return this.currentUser.displayName;
+  }
+
   get uid(): string {
     return this.state.currentUser.uid;
   }
