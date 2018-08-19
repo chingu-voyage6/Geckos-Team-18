@@ -3,7 +3,7 @@
     <mat-icon>{{collection.public ? 'public' : 'lock'}}</mat-icon>
   </mat-card-title>
   <mat-card-subtitle>{{collection.authorId}}</mat-card-subtitle>
-  <mat-card-actions>
+  <mat-card-actions *ngIf="collection.id">
     <button mat-icon-button routerLink="/collections/view/{{collection.id}}">
       <mat-icon>view_module</mat-icon>
     </button>

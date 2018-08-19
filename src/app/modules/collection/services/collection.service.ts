@@ -52,15 +52,7 @@ export class CollectionService {
 
   createCollection(collection: Collection) {
     collection.authorId = this.authService.uid;
-    return (
-      this.afs
-        .collection<Collection>('collections')
-        .add(collection)
-        // tslint:disable-next-line:no-shadowed-variable
-        /*.then(collection => {
-          collection.update({ id: collection.id });
-        })*/
-    );
+    return this.afs.collection<Collection>('collections').add(collection);
   }
 
   updateCollection(collection: Collection) {
@@ -78,21 +70,15 @@ export class CollectionService {
   }
 
   getCollectionCard(collectionId: string, cardId: string) {
-  	return this.afs
+    return this.afs
       .doc(`collections/${collectionId}/cards/${cardId}`)
       .valueChanges();
   }
 
   createCollectionCard(collectionId: string, card: Card) {
-    return (
-      this.afs
+    return this.afs
         .collection<Card>(`collections/${collectionId}/cards`)
-        .add(card)
-        // tslint:disable-next-line:no-shadowed-variable
-        .then(card => {
-          card.update({ id: card.id });
-        })
-    );
+        .add(card);
   }
 
   updateCollectionCard(collectionId: string, card: Card) {
