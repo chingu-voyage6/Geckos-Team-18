@@ -3,17 +3,19 @@
     <mat-card-title class="card-title">
       {{ card.title }}
     </mat-card-title>
-    <button mat-icon-button routerLink="edit-card/{{card.id}}">
-      <mat-icon color="accent">edit</mat-icon>
-    </button>
-    <button mat-icon-button (click)="deleteCard()">
-      <mat-icon color="warn">delete</mat-icon>
-    </button>
+    <div *ngIf="card.id">
+      <button mat-icon-button routerLink="edit-card/{{card.id}}">
+        <mat-icon color="accent">edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteCard()">
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+    </div>
   </mat-card-header>
   <mat-card-content class="card">
     <app-card-side class="front" [@cardReverse]="frontReverse" (click)="toggle()" [cardSide]="card.front" fxLayout="row" fxLayoutAlign="center center">
     </app-card-side>
     <app-card-side class="back" [@cardReverse]="backReverse" (click)="toggle()" [cardSide]="card.back" fxLayout="row" fxLayoutAlign="center center">
-    </app-card-side> 
+    </app-card-side>
   </mat-card-content>
 </mat-card>
