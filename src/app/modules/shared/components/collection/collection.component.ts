@@ -18,7 +18,7 @@ export class CollectionComponent implements OnInit {
 
   deleteCollection() {
     this.dialog.open(DeleteCollectionDialogComponent, {
-      width: '250px',
+      width: '300px',
       data: this.collection
     });
   }

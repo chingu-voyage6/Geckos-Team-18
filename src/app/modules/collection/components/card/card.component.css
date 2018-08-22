@@ -1,11 +1,13 @@
 :host {
 	margin: 1% 1%;
 }
-.card {
+
+mat-card-content {
 	width: 300px;
-	height: 300px;
+	min-height: 300px;
 	position: relative;
 	perspective: 1000px;
+	cursor: pointer;
 }
 
 .card-title {
@@ -36,11 +38,11 @@ background: linear-gradient(45deg, rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50
 }
 
 .back {
-    background: -moz-linear-gradient(45deg, rgba(242,246,248,1) 0%, rgba(216,225,231,0.8) 50%, rgba(181,198,208,0.8) 51%, rgba(224,239,249,0.6) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(242,246,248,1)), color-stop(50%, rgba(216,225,231,0.8)), color-stop(51%, rgba(181,198,208,0.8)), color-stop(100%, rgba(224,239,249,0.6)));
-    background: -webkit-linear-gradient(45deg, rgba(242,246,248,1) 0%, rgba(216,225,231,0.8) 50%, rgba(181,198,208,0.8) 51%, rgba(224,239,249,0.6) 100%);
-    background: -o-linear-gradient(45deg, rgba(242,246,248,1) 0%, rgba(216,225,231,0.8) 50%, rgba(181,198,208,0.8) 51%, rgba(224,239,249,0.6) 100%);
-    background: -ms-linear-gradient(45deg, rgba(242,246,248,1) 0%, rgba(216,225,231,0.8) 50%, rgba(181,198,208,0.8) 51%, rgba(224,239,249,0.6) 100%);
-    background: linear-gradient(45deg, rgba(242,246,248,1) 0%, rgba(216,225,231,0.8) 50%, rgba(181,198,208,0.8) 51%, rgba(224,239,249,0.6) 100%);
+background: -moz-linear-gradient(-45deg, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(226,226,226,1)), color-stop(50%, rgba(219,219,219,1)), color-stop(51%, rgba(209,209,209,1)), color-stop(100%, rgba(254,254,254,1)));
+background: -webkit-linear-gradient(-45deg, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+background: linear-gradient(135deg, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
 }
 

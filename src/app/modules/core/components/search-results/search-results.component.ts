@@ -3,6 +3,7 @@ import { Collection } from '@collection/models/collection.model';
 import { CollectionService } from '@collection/services/collection.service';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-results',
@@ -10,7 +11,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
-  collections: Collection[];
+  collections: Observable<Collection[]>;
 
   constructor(
     private collectionService: CollectionService,
@@ -18,8 +19,8 @@ export class SearchResultsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.collectionService
-      .search(this.route.queryParams.pipe(map(term => term['q'])))
-      .subscribe(collections => (this.collections = collections));
+    this.collections = this.collectionService.search(
+      this.route.queryParams.pipe(map(term => term['q']))
+    );
   }
 }

@@ -51,8 +51,14 @@ export class CollectionService {
   }
 
   createCollection(collection: Collection) {
-    collection.authorId = this.authService.uid;
-    return this.afs.collection<Collection>('collections').add(collection);
+    this.authService.user.subscribe(user => {
+      collection.author = user.displayName;
+      collection.authorId = user.uid;
+      this.afs
+        .collection<Collection>('collections')
+        .add(collection)
+    });
+
   }
 
   updateCollection(collection: Collection) {
