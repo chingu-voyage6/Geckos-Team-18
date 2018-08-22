@@ -9,6 +9,7 @@ import { EditCardComponent } from '@collection/components/edit-card/edit-card.co
 import { EditCollectionComponent } from '@collection/components/edit-collection/edit-collection.component';
 import { CollectionGuard } from '@collection/guards/collection.guard';
 import { ViewCollectionComponent } from '@collection/components/view-collection/view-collection.component';
+import { TrainingConfigurationViewComponent } from '@collection/components/training-configuration-view/training-configuration-view.component';
 import { AuthGuard } from '@auth/guards/auth.guard';
 
 export const routes: Routes = [
@@ -23,6 +24,13 @@ export const routes: Routes = [
       {
         path: 'create',
         component: CreateCollectionComponent
+      },
+      {
+        path: 'training/:id',
+        component: TrainingConfigurationViewComponent,
+        resolve: {
+          collection: CollectionGuard
+        }
       },
       {
         path: 'edit/:id',

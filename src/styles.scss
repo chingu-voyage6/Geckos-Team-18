@@ -14,3 +14,19 @@ body {
   width: 0px;
   background: transparent;
 }
+
+.myapp-background-dialog .mat-dialog-container {
+  background: #fff3f3;
+  width: 25vw;
+}
+
+.app-profile-dialog .mat-dialog-content {
+  background: #fff3f3;
+  width: 25vw;
+}
+
+.mat-menu-panel {
+	width: 40vw;
+	text-align: center;
+	padding: 10px 5px;
+}

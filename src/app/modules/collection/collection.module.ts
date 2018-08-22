@@ -21,6 +21,7 @@ import { CreateCardComponent } from './components/create-card/create-card.compon
 import { EditCardComponent } from './components/edit-card/edit-card.component';
 import { DeleteCardDialogComponent } from './components/delete-card-dialog/delete-card-dialog.component';
 import { SharedModule } from '../shared/shared.module';
+import { TrainingConfigurationViewComponent } from './components/training-configuration-view/training-configuration-view.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { SharedModule } from '../shared/shared.module';
     CreateCardBtnComponent,
     CreateCardComponent,
     EditCardComponent,
-    DeleteCardDialogComponent
+    DeleteCardDialogComponent,
+    TrainingConfigurationViewComponent
   ],
   exports: [
     CollectionsComponent,
@@ -54,7 +56,8 @@ import { SharedModule } from '../shared/shared.module';
     CreateCardBtnComponent,
     CreateCardComponent,
     EditCardComponent,
-    DeleteCardDialogComponent
+    DeleteCardDialogComponent,
+    TrainingConfigurationViewComponent
   ],
   entryComponents: [DeleteCardDialogComponent],
   providers: [AngularFirestore, CollectionService]

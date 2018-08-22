@@ -77,7 +77,7 @@ export class CardComponent implements OnInit {
 
   deleteCard() {
     this.dialog.open(DeleteCardDialogComponent, {
-      width: '250px',
+      panelClass: 'myapp-background-dialog',
       data: { collectionId: this.route.snapshot.params.id, card: this.card}, 
     });
   }
