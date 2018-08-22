@@ -11,11 +11,12 @@ import { CollectionGuard } from '@collection/guards/collection.guard';
 import { ViewCollectionComponent } from '@collection/components/view-collection/view-collection.component';
 import { TrainingConfigurationViewComponent } from '@collection/components/training-configuration-view/training-configuration-view.component';
 import { AuthGuard } from '@auth/guards/auth.guard';
+import { DisplayNameGuard } from '@auth/guards/display-name.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, DisplayNameGuard],
     children: [
       {
         path: '',
@@ -49,13 +50,13 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: ViewCollectionComponent,
+        component: ViewCollectionComponent
       },
-      
+
       {
         path: 'create',
         component: CreateCardComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, DisplayNameGuard]
       },
       {
         path: 'edit-card/:cardId',
@@ -68,6 +69,6 @@ export const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [CollectionGuard]
+  providers: [AuthGuard, DisplayNameGuard, CollectionGuard]
 })
 export class RoutingModule {}
