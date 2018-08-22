@@ -57,11 +57,8 @@ export class CollectionService {
       this.afs
         .collection<Collection>('collections')
         .add(collection)
-        // tslint:disable-next-line:no-shadowed-variable
-        .then(collection => {
-          collection.update({ id: collection.id });
-        });
     });
+
   }
 
   updateCollection(collection: Collection) {
@@ -85,15 +82,9 @@ export class CollectionService {
   }
 
   createCollectionCard(collectionId: string, card: Card) {
-    return (
-      this.afs
+    return this.afs
         .collection<Card>(`collections/${collectionId}/cards`)
-        .add(card)
-        // tslint:disable-next-line:no-shadowed-variable
-        .then(card => {
-          card.update({ id: card.id });
-        })
-    );
+        .add(card);
   }
 
   updateCollectionCard(collectionId: string, card: Card) {
