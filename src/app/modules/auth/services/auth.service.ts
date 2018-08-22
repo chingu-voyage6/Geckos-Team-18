@@ -28,7 +28,7 @@ export class AuthService {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
-          return of(null);
+          return of();
         }
       })
     );
@@ -131,7 +131,7 @@ export class AuthService {
   signOut() {
     this.router.navigate(['home']);
     this.afAuth.auth.signOut();
-    this.user = of(null);
+    this.user = of();
   }
 
   private setUserDoc(auth) {
