@@ -18,8 +18,8 @@ export class CollectionComponent implements OnInit {
 
   deleteCollection() {
     this.dialog.open(DeleteCollectionDialogComponent, {
-      width: '300px',
-      data: this.collection
+      data: this.collection,
+      panelClass: 'myapp-background-dialog'
     });
   }
 }

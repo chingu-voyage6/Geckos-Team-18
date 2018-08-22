@@ -3,9 +3,11 @@
         <img [src]="getGravatarImage(user.uid)">
     </button>
     <mat-menu #menu="matMenu" fxLayout="column" fxLayoutAlign="center center" fxFlex>
-        <h3>Hello, {{ ( user | async )?.displayName }}!</h3>
-        <button mat-menu-item routerLink="/collections">My collections</button>
-        <button mat-menu-item color="warn" (click)="signOut()">Logout</button>
+        <div *ngIf="(user | async )?.uid;else spinner"> 
+            <h3>Hello, <span>{{ ( user | async )?.displayName }}</span>!</h3>
+            <button class="collections" mat-menu-item routerLink="/collections">My collections</button>
+            <button mat-raised-button color="warn" (click)="signOut()">Logout</button>
+        </div>
         <ng-template #spinner>
             <mat-spinner diameter="40"></mat-spinner>
         </ng-template>

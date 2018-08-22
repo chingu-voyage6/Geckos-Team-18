@@ -7,8 +7,15 @@ img {
 button {
 	text-align: center;
 }
-.mat-menu-panel {
-	width: 25%;
-	height: 25%;
-	background: red;
+
+h3 {
+	margin-bottom: 0;
+}
+
+span {
+	color: #00bcd4;
+}
+
+.collections {
+	margin: 10px 0;
 }
