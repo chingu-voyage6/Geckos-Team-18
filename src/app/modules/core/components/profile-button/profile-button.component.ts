@@ -17,10 +17,6 @@ export class ProfileButtonComponent implements OnInit {
     this.user = this.authService.user;
   }
 
-  getGravatarImage(uid: string): string {
-    return `http://www.gravatar.com/avatar/${uid}?s=48&d=identicon`;
-  }
-
   signOut() {
     return this.authService.signOut();
   }
