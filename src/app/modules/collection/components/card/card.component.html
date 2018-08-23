@@ -3,17 +3,25 @@
     <mat-card-title class="card-title">
       {{ card.title }}
     </mat-card-title>
+    <ng-container *ngIf="back">
     <button mat-icon-button *ngIf="authService.uid === collection.authorId" routerLink="edit-card/{{card.id}}">
       <mat-icon color="accent" title="Edit card">edit</mat-icon>
     </button>
     <button mat-icon-button *ngIf="authService.uid === collection.authorId" (click)="deleteCard()">
       <mat-icon color="warn" title="Delete card">delete</mat-icon>
     </button>  
+  </ng-container>
   </mat-card-header>
-  <mat-card-content class="card">
+  <mat-card-content *ngIf="back;else anyhow" class="card">
     <app-card-side class="front" [@cardReverse]="frontReverse" (click)="toggle()" [cardSide]="card.front" fxLayout="row" fxLayoutAlign="center center">
     </app-card-side>
     <app-card-side class="back" [@cardReverse]="backReverse" (click)="toggle()" [cardSide]="card.back" fxLayout="row" fxLayoutAlign="center center">
     </app-card-side>
   </mat-card-content>
+  <ng-template #anyhow>
+    <mat-card-content>
+    <app-card-side class="front" [cardSide]="card.front" fxLayout="row" fxLayoutAlign="center center">
+    </app-card-side>
+    </mat-card-content>
+  </ng-template>
 </mat-card>

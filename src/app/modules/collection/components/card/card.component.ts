@@ -53,6 +53,7 @@ import {
 export class CardComponent implements OnInit {
   show = true;
   @Input() card: Card;
+  @Input() back: boolean = true;
   collection: Collection;
   @Input() actionsEnabled: boolean = true;
   constructor(public dialog: MatDialog, private route: ActivatedRoute, public authService: AuthService) {}
