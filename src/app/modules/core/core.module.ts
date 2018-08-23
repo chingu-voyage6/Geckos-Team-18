@@ -17,7 +17,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ProfileButtonComponent } from '@core/components/profile-button/profile-button.component';
-
+import { GravatarModule } from '@infinitycube/gravatar';
 
 @NgModule({
   imports: [
@@ -25,7 +25,8 @@ import { ProfileButtonComponent } from '@core/components/profile-button/profile-
     MaterialModule,
     RoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    GravatarModule
   ],
   declarations: [
     ExpandableSearchComponent,
