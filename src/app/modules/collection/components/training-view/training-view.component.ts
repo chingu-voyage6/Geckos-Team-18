@@ -46,8 +46,13 @@ export class TrainingViewComponent implements OnInit {
       .pipe(
         tap(cards => {
           cards.forEach(card => {
-            this.controls.push(new FormControl('', Validators.required));
+            this.controls.push(
+              this._formBuilder.group({
+                [card.id]: ['', [Validators.required]]
+              })
+            );
           });
+          console.log(this.controls);
         })
       );
   }
