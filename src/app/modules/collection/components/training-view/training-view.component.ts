@@ -22,10 +22,8 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./training-view.component.css']
 })
 export class TrainingViewComponent implements OnInit {
-  isLinear = true;
-  isEditable = false;
   searchText: string;
-  firstFormGroup: FormGroup;
+  stepForm: FormGroup = new FormGroup({});
   @Input() collection: Collection;
   @Input() actionsEnabled: boolean = true;
   cards: Observable<Card[]>;
@@ -37,31 +35,26 @@ export class TrainingViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      controls: this._formBuilder.array([])
-    });
     this.collection = this.route.snapshot.data.collection;
     this.cards = this.collectionService
       .getCollectionCards(this.collection.id)
       .pipe(
         tap(cards => {
           cards.forEach(card => {
-            this.controls.push(
-              this._formBuilder.group({
-                [card.id]: ['', [Validators.required]]
-              })
+            this.stepForm.addControl(
+              card.id,
+              new FormControl('', [Validators.required])
             );
           });
-          console.log(this.controls);
         })
       );
   }
 
   get controls(): FormArray | null {
-    return this.firstFormGroup.get('controls') as FormArray;
+    return this.stepForm.get('controls') as FormArray;
   }
 
   test() {
-    console.log(this.controls.value);
+    console.log(this.stepForm.value);
   }
 }
