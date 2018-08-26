@@ -1,4 +1,4 @@
-<form (ngSubmit)="finish()" [formGroup]="stepForm" fxFlex fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="space-between center">
+<form [formGroup]="stepForm" fxFlex fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="space-between center">
 	<mat-horizontal-stepper [linear]="true" #stepper>
 		<mat-step *ngFor="let card of cards | async as cards; index as i; last as isLast;" [stepControl]="stepForm.get(card.id)" [editable]="false">
 			<ng-template matStepLabel>Card {{i+1}}</ng-template>
@@ -10,7 +10,7 @@
 					<input matInput placeholder="Your answer" [formControlName]="card.id" required>
 				</mat-form-field>
 				<button mat-raised-button color="primary" matStepperNext type="button" [disabled]="!stepForm.get(card.id).valid" *ngIf="!isLast">Next</button>
-				<button mat-raised-button color="warn" matStepperNext type="submit" [disabled]="!stepForm.get(card.id).valid" (click)="compare(cards)" *ngIf="isLast">Finish</button>
+				<button mat-raised-button color="warn" matStepperNext type="button" [disabled]="!stepForm.get(card.id).valid" (click)="compare(cards)" *ngIf="isLast">Finish</button>
 			</div>
 		</mat-step>
 	</mat-horizontal-stepper>

@@ -35,7 +35,7 @@ export class TrainingViewComponent implements OnInit {
     private _formBuilder: FormBuilder,
     public authService: AuthService,
     private route: ActivatedRoute,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
     private location: Location,
     private trainingService: TrainingService
   ) {}
@@ -59,45 +59,24 @@ export class TrainingViewComponent implements OnInit {
       );
   }
 
-  get controls(): FormArray | null {
-    return this.stepForm.get('controls') as FormArray;
-  }
-
   compare(cards){
-  let counter = 0;
-  cards.forEach(card => {
-  if (this.stepForm.value[card.id] == card.back.content) {
-  counter++;
-  }
-  });
-  console.log(
-  `correct cards ${counter} out of ${cards.length} with score ${counter /
-  cards.length}`
-  );
-  }
+	  let counter = 0;
+	  cards.forEach(card => {
+	  if (this.stepForm.value[card.id] == card.back.content) {
+	  counter++;
+	  }
+	  });
 
-
-
-  finish() {
-    this.collectionService.updateCollection(this.collection).then(() => {
-      this.location.back();
-    });
-  }
-
-  test() {
     this.trainingService
       .postTrainingResult({
         collectionId: this.collection.id,
         userId: this.user.uid,
-        cards: 10,
-        answered: 10
+        cards: counter,
+        answered: cards.length
       })
       .then(() => {
-        this.trainingService
-          .getTrainingResults(this.collection.id, this.user.uid)
-          .subscribe(result => {
-            console.log(result);
-          });
+      	this.location.back();
       });
   }
+
 }
