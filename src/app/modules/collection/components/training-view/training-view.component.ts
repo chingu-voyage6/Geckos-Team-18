@@ -15,6 +15,8 @@ import { AuthService } from '@auth/services/auth.service';
 import { CollectionService } from '@collection/services/collection.service';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import { TrainingService } from '@collection/services/training.service';
+import { User } from '@auth/models/user.model';
 
 @Component({
   selector: 'app-training-view',
@@ -27,14 +29,19 @@ export class TrainingViewComponent implements OnInit {
   @Input() collection: Collection;
   @Input() actionsEnabled: boolean = true;
   cards: Observable<Card[]>;
+  user: User;
   constructor(
     private _formBuilder: FormBuilder,
     public authService: AuthService,
     private route: ActivatedRoute,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
+    private trainingService: TrainingService
   ) {}
 
   ngOnInit() {
+    this.authService.user.subscribe(user => {
+      this.user = user;
+    });
     this.collection = this.route.snapshot.data.collection;
     this.cards = this.collectionService
       .getCollectionCards(this.collection.id)
@@ -55,6 +62,19 @@ export class TrainingViewComponent implements OnInit {
   }
 
   test() {
-    console.log(this.stepForm.value);
+    this.trainingService
+      .postTrainingResult({
+        collectionId: this.collection.id,
+        userId: this.user.uid,
+        cards: 10,
+        answered: 10
+      })
+      .then(() => {
+        this.trainingService
+          .getTrainingResults(this.collection.id, this.user.uid)
+          .subscribe(result => {
+            console.log(result);
+          });
+      });
   }
 }
