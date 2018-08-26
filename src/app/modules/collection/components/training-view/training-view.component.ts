@@ -11,6 +11,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { Collection } from '@collection/models/collection.model';
 import { Card } from '@collection/models/card.model';
 import { Observable } from 'rxjs';
+import { Location } from '@angular/common';
 import { AuthService } from '@auth/services/auth.service';
 import { CollectionService } from '@collection/services/collection.service';
 import { ActivatedRoute } from '@angular/router';
@@ -31,6 +32,7 @@ export class TrainingViewComponent implements OnInit {
     private _formBuilder: FormBuilder,
     public authService: AuthService,
     private route: ActivatedRoute,
+    private location: Location,
     private collectionService: CollectionService
   ) {}
 
@@ -52,6 +54,27 @@ export class TrainingViewComponent implements OnInit {
 
   get controls(): FormArray | null {
     return this.stepForm.get('controls') as FormArray;
+  }
+
+  compare(cards){
+  let counter = 0;
+  cards.forEach(card => {
+  if (this.stepForm.value[card.id] == card.back.content) {
+  counter++;
+  }
+  });
+  console.log(
+  `correct cards ${counter} out of ${cards.length} with score ${counter /
+  cards.length}`
+  );
+  }
+
+
+
+  finish() {
+    this.collectionService.updateCollection(this.collection).then(() => {
+      this.location.back();
+    });
   }
 
   test() {
