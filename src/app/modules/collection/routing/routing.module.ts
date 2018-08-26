@@ -10,6 +10,7 @@ import { EditCollectionComponent } from '@collection/components/edit-collection/
 import { CollectionGuard } from '@collection/guards/collection.guard';
 import { ViewCollectionComponent } from '@collection/components/view-collection/view-collection.component';
 import { TrainingConfigurationViewComponent } from '@collection/components/training-configuration-view/training-configuration-view.component';
+import { TrainingViewComponent } from '@collection/components/training-view/training-view.component';
 import { AuthGuard } from '@auth/guards/auth.guard';
 import { DisplayNameGuard } from '@auth/guards/display-name.guard';
 
@@ -29,6 +30,13 @@ export const routes: Routes = [
       {
         path: 'training/:id',
         component: TrainingConfigurationViewComponent,
+        resolve: {
+          collection: CollectionGuard
+        }
+      },
+      {
+        path: 'training-view/:id',
+        component: TrainingViewComponent,
         resolve: {
           collection: CollectionGuard
         }

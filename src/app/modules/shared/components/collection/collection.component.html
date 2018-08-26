@@ -14,6 +14,9 @@
       <button mat-icon-button *ngIf="authService.uid === collection.authorId" (click)="deleteCollection()">
         <mat-icon color="warn" title="Delete collection">delete</mat-icon>
       </button>
+      <button mat-icon-button routerLink="/collections/training/{{collection.id}}">
+      <mat-icon color="primary" title="View collection">fitness_center</mat-icon>
+    </button>
     </ng-container>
   </mat-card-actions>
 </mat-card>
