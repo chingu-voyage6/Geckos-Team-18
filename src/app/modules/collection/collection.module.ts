@@ -48,7 +48,7 @@ import { TrainingStatisticsComponent } from './components/training-statistics/tr
     DeleteCardDialogComponent,
     TrainingConfigurationViewComponent,
     TrainingViewComponent,
-    StopTrainingDialogComponent
+    StopTrainingDialogComponent,
     TrainingStatisticsComponent
   ],
   exports: [
@@ -65,7 +65,7 @@ import { TrainingStatisticsComponent } from './components/training-statistics/tr
     DeleteCardDialogComponent,
     TrainingConfigurationViewComponent
   ],
-  entryComponents: [DeleteCardDialogComponent, StopTrainingDialogComponent], 
+  entryComponents: [DeleteCardDialogComponent, StopTrainingDialogComponent],
   providers: [AngularFirestore, CollectionService]
 })
 export class CollectionModule {}
