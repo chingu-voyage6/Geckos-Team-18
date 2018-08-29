@@ -40,6 +40,12 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
+  signup() {
+    return this.auth
+      .emailSignUp(this.email.value, this.password.value)
+      .then(() => this.afterSignIn());
+  }
+
   signin() {
     return this.auth
       .emailSignIn(this.email.value, this.password.value)
