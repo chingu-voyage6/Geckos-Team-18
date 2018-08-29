@@ -1,0 +1,5 @@
+<mat-list>
+  <mat-list-item>Answered correctly: {{(results | async)?.answered}}</mat-list-item>
+  <mat-list-item>Answered in total: {{(results | async)?.cards}}</mat-list-item>
+  <mat-list-item>Score: {{(results | async)?.score | percent: '0.2-2'}}</mat-list-item>
+</mat-list>

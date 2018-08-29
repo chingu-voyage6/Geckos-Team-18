@@ -23,6 +23,7 @@ import { DeleteCardDialogComponent } from './components/delete-card-dialog/delet
 import { SharedModule } from '../shared/shared.module';
 import { TrainingConfigurationViewComponent } from './components/training-configuration-view/training-configuration-view.component';
 import { TrainingViewComponent } from './components/training-view/training-view.component';
+import { TrainingStatisticsComponent } from './components/training-statistics/training-statistics.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { TrainingViewComponent } from './components/training-view/training-view.
     EditCardComponent,
     DeleteCardDialogComponent,
     TrainingConfigurationViewComponent,
-    TrainingViewComponent
+    TrainingViewComponent,
+    TrainingStatisticsComponent
   ],
   exports: [
     CollectionsComponent,

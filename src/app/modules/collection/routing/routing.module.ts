@@ -13,6 +13,7 @@ import { TrainingConfigurationViewComponent } from '@collection/components/train
 import { TrainingViewComponent } from '@collection/components/training-view/training-view.component';
 import { AuthGuard } from '@auth/guards/auth.guard';
 import { DisplayNameGuard } from '@auth/guards/display-name.guard';
+import { UserGuard } from '@auth/guards/user.guard';
 
 export const routes: Routes = [
   {
@@ -31,7 +32,8 @@ export const routes: Routes = [
         path: 'training/:id',
         component: TrainingConfigurationViewComponent,
         resolve: {
-          collection: CollectionGuard
+          collection: CollectionGuard,
+          user: UserGuard
         }
       },
       {
