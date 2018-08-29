@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { Collection } from '@collection/models/collection.model';
+import { StopTrainingDialogComponent } from '@collection/components/stop-training-dialog/stop-training-dialog.component';
 import { Card } from '@collection/models/card.model';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
@@ -16,6 +17,7 @@ import { AuthService } from '@auth/services/auth.service';
 import { CollectionService } from '@collection/services/collection.service';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
 import { TrainingService } from '@collection/services/training.service';
 import { User } from '@auth/models/user.model';
 
@@ -37,7 +39,8 @@ export class TrainingViewComponent implements OnInit {
     private route: ActivatedRoute,
     private collectionService: CollectionService,
     private location: Location,
-    private trainingService: TrainingService
+    private trainingService: TrainingService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -59,6 +62,13 @@ export class TrainingViewComponent implements OnInit {
       );
   }
 
+  stopTraining() {
+    this.dialog.open(StopTrainingDialogComponent, {
+      data: this.collection,
+      panelClass: 'myapp-background-dialog'
+    });
+  }
+  
   compare(cards){
 	  let counter = 0;
 	  cards.forEach(card => {

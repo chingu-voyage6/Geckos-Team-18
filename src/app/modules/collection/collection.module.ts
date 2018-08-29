@@ -23,6 +23,7 @@ import { DeleteCardDialogComponent } from './components/delete-card-dialog/delet
 import { SharedModule } from '../shared/shared.module';
 import { TrainingConfigurationViewComponent } from './components/training-configuration-view/training-configuration-view.component';
 import { TrainingViewComponent } from './components/training-view/training-view.component';
+import { StopTrainingDialogComponent } from './components/stop-training-dialog/stop-training-dialog.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { TrainingViewComponent } from './components/training-view/training-view.
     EditCardComponent,
     DeleteCardDialogComponent,
     TrainingConfigurationViewComponent,
-    TrainingViewComponent
+    TrainingViewComponent,
+    StopTrainingDialogComponent
   ],
   exports: [
     CollectionsComponent,
@@ -61,7 +63,7 @@ import { TrainingViewComponent } from './components/training-view/training-view.
     DeleteCardDialogComponent,
     TrainingConfigurationViewComponent
   ],
-  entryComponents: [DeleteCardDialogComponent],
+  entryComponents: [DeleteCardDialogComponent, StopTrainingDialogComponent], 
   providers: [AngularFirestore, CollectionService]
 })
 export class CollectionModule {}
