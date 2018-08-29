@@ -1,0 +1,8 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFlex>
+	<h1 mat-dialog-title>
+	  Are you sure you want to stop this training?</h1>
+	<div mat-dialog-actions>
+	  <button mat-raised-button color="primary" (click)="close()">No</button>
+	  <button mat-raised-button color="warn" (click)="stop()" title="Your data will be lost">Yes</button>
+	</div>
+</div>
