@@ -41,27 +41,29 @@ export class LoginComponent implements OnInit {
   }
 
   signin() {
-    return this.auth.emailSignIn(this.email.value, this.password.value);
+    return this.auth
+      .emailSignIn(this.email.value, this.password.value)
+      .then(() => this.afterSignIn());
   }
 
   anonymousSignIn() {
-    return this.auth.anonymousSignIn();
+    return this.auth.anonymousSignIn().then(() => this.afterSignIn());
   }
 
   googleSignIn() {
-    return this.auth.googleSignIn();
+    return this.auth.googleSignIn().then(() => this.afterSignIn());
   }
 
   githubSignIn() {
-    return this.auth.githubSignIn();
+    return this.auth.githubSignIn().then(() => this.afterSignIn());
   }
 
   facebookSignIn() {
-    return this.auth.facebookSignIn();
+    return this.auth.facebookSignIn().then(() => this.afterSignIn());
   }
 
   twitterSignIn() {
-    return this.auth.twitterSignIn();
+    return this.auth.twitterSignIn().then(() => this.afterSignIn());
   }
 
   getEmailErrorMessage() {
@@ -78,5 +80,9 @@ export class LoginComponent implements OnInit {
       : this.password.hasError('pattern')
         ? 'Password must be between 6 and 24 characters and contain at least one number'
         : '';
+  }
+
+  afterSignIn() {
+    this.router.navigate(['/collections']);
   }
 }

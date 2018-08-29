@@ -16,23 +16,11 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  user: Observable<User>;
-
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router
-  ) {
-    this.user = this.afAuth.authState.pipe(
-      switchMap(user => {
-        if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-        } else {
-          return of();
-        }
-      })
-    );
-  }
+  ) {}
 
   get state() {
     return this.afAuth.auth;
@@ -73,10 +61,11 @@ export class AuthService {
   }
 
   emailSignIn(email: string, password: string) {
-    this.afAuth.auth
+    return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(user => {
-        this.getUser(user);
+        //
+        //this.getUser();
         this.router.navigate(['home']);
       })
       .catch(error => {
@@ -131,7 +120,6 @@ export class AuthService {
   signOut() {
     this.router.navigate(['home']);
     this.afAuth.auth.signOut();
-    this.user = of();
   }
 
   private setUserDoc(auth) {
@@ -159,14 +147,12 @@ export class AuthService {
       }
     }
 
-    this.router.navigate(['collections']);
-
     return userRef.set(data);
   }
 
   //TODO check constructor if it can be merged
-  public getUser(user) {
-    this.user = this.afAuth.authState.pipe(
+  public get user() {
+    return this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();

@@ -24,6 +24,7 @@ import { SharedModule } from '../shared/shared.module';
 import { TrainingConfigurationViewComponent } from './components/training-configuration-view/training-configuration-view.component';
 import { TrainingViewComponent } from './components/training-view/training-view.component';
 import { StopTrainingDialogComponent } from './components/stop-training-dialog/stop-training-dialog.component';
+import { TrainingStatisticsComponent } from './components/training-statistics/training-statistics.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { StopTrainingDialogComponent } from './components/stop-training-dialog/s
     TrainingConfigurationViewComponent,
     TrainingViewComponent,
     StopTrainingDialogComponent
+    TrainingStatisticsComponent
   ],
   exports: [
     CollectionsComponent,

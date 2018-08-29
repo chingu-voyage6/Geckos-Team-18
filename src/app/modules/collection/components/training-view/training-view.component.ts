@@ -68,25 +68,23 @@ export class TrainingViewComponent implements OnInit {
       panelClass: 'myapp-background-dialog'
     });
   }
-  
-  compare(cards){
-	  let counter = 0;
-	  cards.forEach(card => {
-	  if (this.stepForm.value[card.id] == card.back.content) {
-	  counter++;
-	  }
-	  });
+  compare(cards) {
+    let counter = 0;
+    cards.forEach(card => {
+      if (this.stepForm.value[card.id] == card.back.content) {
+        counter++;
+      }
+    });
 
     this.trainingService
       .postTrainingResult({
         collectionId: this.collection.id,
         userId: this.user.uid,
-        cards: counter,
-        answered: cards.length
+        cards: cards.length,
+        answered: counter
       })
       .then(() => {
-      	this.location.back();
+        this.location.back();
       });
   }
-
 }

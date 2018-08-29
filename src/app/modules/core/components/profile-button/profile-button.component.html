@@ -1,10 +1,11 @@
-<ng-container *ngIf="(user | async)?.uid; else login">
+<ng-container *ngIf="(user | async) as loadedUser; else login">
     <button mat-button [matMenuTriggerFor]="menu">
-        <img [src]="getGravatarImage(user.uid)">
+        <img gravatar [email]="loadedUser.uid" [size]="48" [fallback]="'retro'">
     </button>
     <mat-menu #menu="matMenu" fxLayout="column" fxLayoutAlign="center center" fxFlex>
-        <div *ngIf="(user | async )?.uid;else spinner"> 
-            <h3>Hello, <span>{{ ( user | async )?.displayName }}</span>!</h3>
+        <div *ngIf="loadedUser.uid;else spinner">
+            <h3>Hello,
+                <span>{{ loadedUser.displayName }}</span>!</h3>
             <button class="collections" mat-menu-item routerLink="/collections">My collections</button>
             <button mat-raised-button color="warn" (click)="signOut()">Logout</button>
         </div>

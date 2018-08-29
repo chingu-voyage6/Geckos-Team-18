@@ -3,22 +3,34 @@
 	<mat-card fxFlex="60" fxLayout="column" fxLayoutAlign="space-around start">
 		<mat-card-title>{{collection.name}}</mat-card-title>
 		<h3>Training configuration</h3>
-		<div fxLayout="row" fxLayoutAlign="space-between center"><p>Shuffle</p><mat-slide-toggle color="accent"></mat-slide-toggle></div>
-		<div fxLayout="row" fxLayoutAlign="space-between center"><p>Loop</p><mat-slide-toggle color="accent"></mat-slide-toggle></div>
-		<div fxLayout="row" fxLayoutAlign="space-between center"><p>Prioritise hardest</p><mat-slide-toggle color="accent"></mat-slide-toggle></div>
-		<div fxLayout="row" fxLayoutAlign="space-between center"><p>Limit amount:</p>
-		<mat-form-field>
-    		<input matInput placeholder="Set card limit" value="2">
-  		</mat-form-field>
-  		</div>
-		<div fxLayout="row" fxLayoutAlign="space-between center"><p>Limit time:</p>
-		<mat-form-field>
-    		<input matInput placeholder="Set time limit in sec" value="60">
-  		</mat-form-field>
-  		</div>
-  	</mat-card>
-  	<mat-card fxFlex="25" fxLayout="column" fxLayoutAlign="space-around start">
+		<div fxLayout="row" fxLayoutAlign="space-between center">
+			<p>Shuffle</p>
+			<mat-slide-toggle color="accent" disabled="true"></mat-slide-toggle>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-between center">
+			<p>Loop</p>
+			<mat-slide-toggle color="accent" disabled="true"></mat-slide-toggle>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-between center">
+			<p>Prioritise hardest</p>
+			<mat-slide-toggle color="accent" disabled="true"></mat-slide-toggle>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-between center">
+			<p>Limit amount:</p>
+			<mat-form-field>
+				<input matInput placeholder="Set card limit" value="2" disabled="true">
+			</mat-form-field>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-between center">
+			<p>Limit time:</p>
+			<mat-form-field disabled="true">
+				<input matInput placeholder="Set time limit in sec" value="60">
+			</mat-form-field>
+		</div>
+	</mat-card>
+	<mat-card fxFlex="25" fxLayout="column" fxLayoutAlign="space-around start">
 		<mat-card-title>Statistics</mat-card-title>
+		<app-training-statistics></app-training-statistics>
 	</mat-card>
 	<button fxFlex="5" mat-raised-button color="primary" routerLink="/collections/training-view/{{collection.id}}">Start</button>
 </div>
