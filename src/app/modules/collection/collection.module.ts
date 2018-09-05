@@ -25,6 +25,8 @@ import { TrainingConfigurationViewComponent } from './components/training-config
 import { TrainingViewComponent } from './components/training-view/training-view.component';
 import { StopTrainingDialogComponent } from './components/stop-training-dialog/stop-training-dialog.component';
 import { TrainingStatisticsComponent } from './components/training-statistics/training-statistics.component';
+import { ChartsModule } from 'ng2-charts';
+import { TrainingStatisticsContainerComponent } from './containers/training-statistics-container/training-statistics-container.component';
 
 @NgModule({
   imports: [
@@ -32,6 +34,7 @@ import { TrainingStatisticsComponent } from './components/training-statistics/tr
     RoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    ChartsModule,
     SharedModule
   ],
   declarations: [
@@ -49,7 +52,8 @@ import { TrainingStatisticsComponent } from './components/training-statistics/tr
     TrainingConfigurationViewComponent,
     TrainingViewComponent,
     StopTrainingDialogComponent,
-    TrainingStatisticsComponent
+    TrainingStatisticsComponent,
+    TrainingStatisticsContainerComponent
   ],
   exports: [
     CollectionsComponent,
