@@ -1,3 +1,9 @@
 :host {
   height: 100%;
 }
+
+a {
+	position: fixed;
+	bottom: 3vh;
+	left: 3vh;
+}
