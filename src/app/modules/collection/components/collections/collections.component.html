@@ -1,3 +1,4 @@
-<div fxFill fxLayout="row wrap" fxLayoutAlign="center">
-<app-collection *ngFor="let collection of userCollections | async" [collection]="collection"></app-collection></div>
+<div fxFill fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <app-collection fxFlex="30" *ngFor="let collection of userCollections | async" [collection]="collection"></app-collection>
+</div>
 <app-create-collection-btn></app-create-collection-btn>

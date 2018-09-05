@@ -1,7 +1,5 @@
-<div class="wrapper">
-	<div fxFill fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
-		<app-card fxFlex="30" *ngFor="let card of cards | async" [card]="card"></app-card>
-	</div>
+<div fxFill fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+	<app-card fxFlex="30" *ngFor="let card of cards | async" [card]="card"></app-card>
 </div>
 <app-create-card-btn></app-create-card-btn>
 <a mat-fab color="warn" routerLink="/collections" title="Back to collections"><mat-icon>keyboard_return</mat-icon></a>
