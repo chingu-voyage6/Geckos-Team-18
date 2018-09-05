@@ -1,3 +1,3 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxFlex>
-    <app-collection *ngFor="let collection of collections | async" [collection]="collection"></app-collection>
+<div fxFill fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <app-collection fxFlex="30" *ngFor="let collection of collections | async" [collection]="collection"></app-collection>
 </div>
