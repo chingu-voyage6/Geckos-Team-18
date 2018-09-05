@@ -1,23 +1,67 @@
 :host {
-	width: 50%;
-	margin: 1vh 0;
-	}
+  width: 50%;
+  margin: 1vh 0;
+}
 
 mat-card {
-    background: -moz-linear-gradient(45deg, #008080 0%, #FFFFFF 25%, #F2FF9C 50%, #FFFFFF 75%, #005757 100%); /* ff3.6+ */
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #008080), color-stop(25%, #FFFFFF), color-stop(50%, #F2FF9C), color-stop(75%, #FFFFFF), color-stop(100%, #005757)); /* safari4+,chrome */
-    background: -webkit-linear-gradient(45deg, #008080 0%, #FFFFFF 25%, #F2FF9C 50%, #FFFFFF 75%, #005757 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(45deg, #008080 0%, #FFFFFF 25%, #F2FF9C 50%, #FFFFFF 75%, #005757 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(45deg, #008080 0%, #FFFFFF 25%, #F2FF9C 50%, #FFFFFF 75%, #005757 100%); /* ie10+ */
-    background: linear-gradient(45deg, #008080 0%, #FFFFFF 25%, #F2FF9C 50%, #FFFFFF 75%, #005757 100%); /* w3c */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005757', endColorstr='#008080',GradientType=1 ); /* ie6-9 */
+  background: -moz-linear-gradient(
+    45deg,
+    #008080 0%,
+    #ffffff 25%,
+    #f2ff9c 50%,
+    #ffffff 75%,
+    #005757 100%
+  ); /* ff3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    right top,
+    color-stop(0%, #008080),
+    color-stop(25%, #ffffff),
+    color-stop(50%, #f2ff9c),
+    color-stop(75%, #ffffff),
+    color-stop(100%, #005757)
+  ); /* safari4+,chrome */
+  background: -webkit-linear-gradient(
+    45deg,
+    #008080 0%,
+    #ffffff 25%,
+    #f2ff9c 50%,
+    #ffffff 75%,
+    #005757 100%
+  ); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(
+    45deg,
+    #008080 0%,
+    #ffffff 25%,
+    #f2ff9c 50%,
+    #ffffff 75%,
+    #005757 100%
+  ); /* opera 11.10+ */
+  background: -ms-linear-gradient(
+    45deg,
+    #008080 0%,
+    #ffffff 25%,
+    #f2ff9c 50%,
+    #ffffff 75%,
+    #005757 100%
+  ); /* ie10+ */
+  background: linear-gradient(
+    45deg,
+    #008080 0%,
+    #ffffff 25%,
+    #f2ff9c 50%,
+    #ffffff 75%,
+    #005757 100%
+  ); /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005757', endColorstr='#008080',GradientType=1 ); /* ie6-9 */
 }
 
 mat-card-title {
-	font-size: 35px;
+  font-size: 35px;
 }
 
 mat-card-subtitle {
-	font-size: 18px;
-	color: grey;
+  font-size: 18px;
+  color: grey;
 }
