@@ -54,11 +54,8 @@ export class CollectionService {
     this.authService.user.subscribe(user => {
       collection.author = user.displayName;
       collection.authorId = user.uid;
-      this.afs
-        .collection<Collection>('collections')
-        .add(collection)
+      this.afs.collection<Collection>('collections').add(collection);
     });
-
   }
 
   updateCollection(collection: Collection) {
@@ -83,8 +80,8 @@ export class CollectionService {
 
   createCollectionCard(collectionId: string, card: Card) {
     return this.afs
-        .collection<Card>(`collections/${collectionId}/cards`)
-        .add(card);
+      .collection<Card>(`collections/${collectionId}/cards`)
+      .add(card);
   }
 
   updateCollectionCard(collectionId: string, card: Card) {
@@ -108,11 +105,12 @@ export class CollectionService {
   }
 
   private searchQuery(searchTerm: string): Observable<Collection[]> {
+    searchTerm = searchTerm.toLowerCase();
     const shared = this.afs
       .collection<Collection>('collections', ref =>
         ref
           .where('public', '==', true)
-          .orderBy('name')
+          .orderBy('lowerCaseName')
           .startAt(searchTerm)
           .endAt(searchTerm + '\uf8ff')
       )
@@ -124,7 +122,7 @@ export class CollectionService {
           ref
             .where('authorId', '==', this.authService.uid)
             .where('public', '==', false)
-            .orderBy('name')
+            .orderBy('lowerCaseName')
             .startAt(searchTerm)
             .endAt(searchTerm + '\uf8ff')
         )
